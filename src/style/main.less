@@ -1,0 +1,150 @@
+/*
+LESS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: @icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+@icon-home: x y offset_x offset_y width height total_width total_height image_path name;
+
+At the bottom of this section, we provide information about the spritesheet itself
+@spritesheet: width height image @spritesheet-sprites;
+*/
+@arrow483-name: arrow483;
+@arrow483-x: 0px;
+@arrow483-y: 0px;
+@arrow483-offset-x: 0px;
+@arrow483-offset-y: 0px;
+@arrow483-width: 32px;
+@arrow483-height: 32px;
+@arrow483-total-width: 96px;
+@arrow483-total-height: 96px;
+@arrow483-image: '../../build/images/main.png';
+@arrow483: 0px 0px 0px 0px 32px 32px 96px 96px '../../build/images/main.png' arrow483;
+@arrow487-name: arrow487;
+@arrow487-x: 32px;
+@arrow487-y: 0px;
+@arrow487-offset-x: -32px;
+@arrow487-offset-y: 0px;
+@arrow487-width: 32px;
+@arrow487-height: 32px;
+@arrow487-total-width: 96px;
+@arrow487-total-height: 96px;
+@arrow487-image: '../../build/images/main.png';
+@arrow487: 32px 0px -32px 0px 32px 32px 96px 96px '../../build/images/main.png' arrow487;
+@arrowhead7-name: arrowhead7;
+@arrowhead7-x: 0px;
+@arrowhead7-y: 32px;
+@arrowhead7-offset-x: 0px;
+@arrowhead7-offset-y: -32px;
+@arrowhead7-width: 32px;
+@arrowhead7-height: 32px;
+@arrowhead7-total-width: 96px;
+@arrowhead7-total-height: 96px;
+@arrowhead7-image: '../../build/images/main.png';
+@arrowhead7: 0px 32px 0px -32px 32px 32px 96px 96px '../../build/images/main.png' arrowhead7;
+@check34-name: check34;
+@check34-x: 32px;
+@check34-y: 32px;
+@check34-offset-x: -32px;
+@check34-offset-y: -32px;
+@check34-width: 32px;
+@check34-height: 32px;
+@check34-total-width: 96px;
+@check34-total-height: 96px;
+@check34-image: '../../build/images/main.png';
+@check34: 32px 32px -32px -32px 32px 32px 96px 96px '../../build/images/main.png' check34;
+@delete30-name: delete30;
+@delete30-x: 64px;
+@delete30-y: 0px;
+@delete30-offset-x: -64px;
+@delete30-offset-y: 0px;
+@delete30-width: 32px;
+@delete30-height: 32px;
+@delete30-total-width: 96px;
+@delete30-total-height: 96px;
+@delete30-image: '../../build/images/main.png';
+@delete30: 64px 0px -64px 0px 32px 32px 96px 96px '../../build/images/main.png' delete30;
+@plus32-name: plus32;
+@plus32-x: 64px;
+@plus32-y: 32px;
+@plus32-offset-x: -64px;
+@plus32-offset-y: -32px;
+@plus32-width: 32px;
+@plus32-height: 32px;
+@plus32-total-width: 96px;
+@plus32-total-height: 96px;
+@plus32-image: '../../build/images/main.png';
+@plus32: 64px 32px -64px -32px 32px 32px 96px 96px '../../build/images/main.png' plus32;
+@right39-name: right39;
+@right39-x: 0px;
+@right39-y: 64px;
+@right39-offset-x: 0px;
+@right39-offset-y: -64px;
+@right39-width: 32px;
+@right39-height: 32px;
+@right39-total-width: 96px;
+@right39-total-height: 96px;
+@right39-image: '../../build/images/main.png';
+@right39: 0px 64px 0px -64px 32px 32px 96px 96px '../../build/images/main.png' right39;
+@spritesheet-width: 96px;
+@spritesheet-height: 96px;
+@spritesheet-image: '../../build/images/main.png';
+@spritesheet-sprites: @arrow483 @arrow487 @arrowhead7 @check34 @delete30 @plus32 @right39;
+@spritesheet: 96px 96px '../../build/images/main.png' @spritesheet-sprites;
+
+/*
+The provided classes are intended to be used with the array-like variables
+
+.icon-home {
+  .sprite-width(@icon-home);
+}
+.icon-email {
+  .sprite(@icon-email);
+}
+*/
+.sprite-width(@sprite) {
+  width: extract(@sprite, 5);
+}
+
+.sprite-height(@sprite) {
+  height: extract(@sprite, 6);
+}
+
+.sprite-position(@sprite) {
+  @sprite-offset-x: extract(@sprite, 3);
+  @sprite-offset-y: extract(@sprite, 4);
+  background-position: @sprite-offset-x @sprite-offset-y;
+}
+
+.sprite-image(@sprite) {
+  @sprite-image: extract(@sprite, 9);
+  @sprite-image-bare: ~`"@{sprite-image}".slice(1, -1)`;
+  background-image: url(@sprite-image-bare);
+}
+
+.sprite(@sprite) {
+  .sprite-image(@sprite);
+  .sprite-position(@sprite);
+  .sprite-width(@sprite);
+  .sprite-height(@sprite);
+}
+
+/*
+The `.sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of LESS
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+.sprites(@spritesheet-sprites);
+*/
+.sprites(@sprites, @i: 1) when (@i <= length(@sprites)) {
+  @sprite: extract(@sprites, @i);
+  @sprite-name: extract(@sprite, 10);
+  .@{sprite-name} {
+    .sprite(@sprite);
+  }
+  .sprites(@sprites, @i + 1);
+}
