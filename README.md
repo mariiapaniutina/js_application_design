@@ -1,3 +1,3 @@
 # js_application_design
 
-### Here will be all notes from book JavaScript Application Design. Author: Nicolas Bevacqua
+<h3> Here will be all notes from book JavaScript Application Design. Author: <b>Nicolas Bevacqua</b></h3>
