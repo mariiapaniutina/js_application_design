@@ -1,5 +1,6 @@
-# js_application_design
-Here will be all notes from book JavaScript Application Design. Author: <b>Nicolas Bevacqua</b>
+<h1>js_application_design</h1>
+<p>Here will be all notes from book JavaScript Application Design. Author: <b>Nicolas Bevacqua</b></p>
+
 | Used grunt plugins |
 ----------------------
 | grunt-contrib-jshint |
@@ -7,4 +8,4 @@ Here will be all notes from book JavaScript Application Design. Author: <b>Nicol
 | grunt-contrib-less |
 | grunt-contrib-concat |
 | grunt-contrib-watch |
-| grunt-spritesmith |
+| grunt-spritesmith (doesnt work properly with large images) |
