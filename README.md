@@ -1,5 +1,5 @@
 <h1>js_application_design</h1>
-<p>Here will be all notes from book JavaScript Application Design. Author: <b>Nicolas Bevacqua</b></p>
+<p>Here will be all notes from book JavaScript Application Design. Author: <b>Nicolas Bevacqua</b> </p>
 
 | Used grunt plugins |
 ----------------------
