@@ -2,6 +2,7 @@
   "name": "js_application_design",
   "version": "1.0.0",
   "description": "javascript application design.",
+  "main": "js_application_design.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
