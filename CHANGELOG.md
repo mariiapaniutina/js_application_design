@@ -1,3 +1,9 @@
+<a name="1.1.8"></a>
+## [1.1.8](https://github.com/mariiapaniutina/js_application_design/compare/v1.1.7...v1.1.8) (2015-12-31)
+
+
+
+
 <a name="1.1.7"></a>
 ## [1.1.7](https://github.com/mariiapaniutina/js_application_design/compare/v1.1.6...v1.1.7) (2015-12-31)
 

@@ -1,6 +1,6 @@
 {
   "name": "js_application_design",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "javascript application design.",
   "main": "index.js",
   "scripts": {
@@ -29,6 +29,7 @@
     "grunt-contrib-uglify": "^0.11.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-conventional-changelog": "^5.0.0",
+    "grunt-shell": "^1.1.2",
     "grunt-spritesmith": "4.5.0",
     "grunt-text-replace": "^0.4.0",
     "jshint": "^2.8.0",
