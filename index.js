@@ -3,7 +3,7 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
-app.use(express.static(__dirname + '/build'));
+app.use(express.static(__dirname + '/build')); //sourcemap will not work, because of src/js is private.. will think about that...
 //app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {

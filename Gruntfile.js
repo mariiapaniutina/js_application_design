@@ -53,6 +53,22 @@ module.exports = function(grunt) {
         }
     };
     
+    //image minifying
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    config.imagemin = {
+        all: {
+          options: {
+            optimizationLevel: 3
+          },
+          files: [{
+            expand: true,                  
+            cwd: 'src/images/',
+            src: ['*.{png,jpg,gif}'],
+            dest: 'build/images/original/'
+          }]
+        }
+    };
+    
     //js concatenation
     grunt.loadNpmTasks('grunt-contrib-concat');
     config.concat = {
@@ -77,7 +93,7 @@ module.exports = function(grunt) {
     };
 
     // Tasks
-    grunt.registerTask('default', ['jshint', 'sprite', 'less', 'concat', 'uglify']);
+    grunt.registerTask('default', ['jshint', 'sprite', 'imagemin', 'less', 'concat', 'uglify']);
     grunt.registerTask('debug', ['default', 'watch']);
     grunt.registerTask('release', []);
 
