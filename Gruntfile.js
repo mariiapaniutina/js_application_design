@@ -98,6 +98,32 @@ module.exports = function(grunt) {
         } 
     };
     
+    /* Versioning (x.x.x-y)
+        grunt bump-only         >>      Version bumped to 0.0.1 (in package.json) 
+        grunt bump-only:minor   >>      Version bumped to 0.1.0 (in package.json)
+        grunt bump-only:major   >>      Version bumped to 1.0.0 (in package.json)
+    */
+    grunt.loadNpmTasks('grunt-bump');
+    config.bump = {
+        options: {
+            files: ['package.json'],
+            updateConfigs: [],
+            commit: true,
+            commitMessage: 'Release v%VERSION%',
+            commitFiles: ['package.json'],
+            createTag: true,
+            tagName: 'v%VERSION%',
+            tagMessage: 'Version %VERSION%',
+            push: true,
+            //pushTo: 'upstream',
+            gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d',
+            globalReplace: false,
+            prereleaseName: false,
+            metadata: '',
+            regExp: false
+        }
+    };
+    
     //watcher
     grunt.loadNpmTasks('grunt-contrib-watch');
     config.watch = {
@@ -108,7 +134,7 @@ module.exports = function(grunt) {
     // Tasks
     grunt.registerTask('default', ['jshint', 'sprite','replace:icons_less', 'imagemin', 'less', 'concat', 'uglify']);
     grunt.registerTask('debug', ['default', 'watch']);
-    grunt.registerTask('release', []);
+    grunt.registerTask('release', ['default', 'bump:patch']);
 
     grunt.initConfig(config);
 
