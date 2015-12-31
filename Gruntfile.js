@@ -107,7 +107,7 @@ module.exports = function(grunt) {
     config.bump = {
         options: {
             files: ['package.json'],
-            updateConfigs: [],
+            //updateConfigs: [],
             commit: true,
             commitMessage: 'Release v%VERSION%',
             commitFiles: ['package.json'],
@@ -115,14 +115,11 @@ module.exports = function(grunt) {
             tagName: 'v%VERSION%',
             tagMessage: 'Version %VERSION%',
             push: true,
-            //pushTo: 'upstream',
-            gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d',
-            globalReplace: false,
-            prereleaseName: false,
-            metadata: '',
-            regExp: false
+            pushTo: 'origin'
         }
     };
+    
+    grunt.loadNpmTasks('grunt-conventional-changelog');
     
     //watcher
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -133,8 +130,11 @@ module.exports = function(grunt) {
 
     // Tasks
     grunt.registerTask('default', ['jshint', 'sprite','replace:icons_less', 'imagemin', 'less', 'concat', 'uglify']);
+    
     grunt.registerTask('debug', ['default', 'watch']);
-    grunt.registerTask('release', ['default', 'bump:patch']);
+    
+    grunt.registerTask('develop', ['default', 'bump:patch']);
+    grunt.registerTask('release', ['default', 'bump:minor']);
 
     grunt.initConfig(config);
 
