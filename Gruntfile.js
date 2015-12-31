@@ -156,6 +156,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['jshint', 'sprite','replace:icons_less', 'imagemin', 'less', 'concat', 'uglify']);
     
     grunt.registerTask('debug', ['default', 'watch']);
+    grunt.registerTask('notes', ['bump-only', 'conventionalChangelog', 'bump-commit']);
     
     grunt.registerTask('develop', ['default', 'bump:patch']);
     grunt.registerTask('release', ['default', 'bump:minor']);
