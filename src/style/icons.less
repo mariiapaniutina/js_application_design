@@ -1,0 +1,150 @@
+/*
+LESS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: @icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+@icon-home: x y offset_x offset_y width height total_width total_height image_path name;
+
+At the bottom of this section, we provide information about the spritesheet itself
+@spritesheet: width height image @spritesheet-sprites;
+*/
+@add-name: add;
+@add-x: 0px;
+@add-y: 0px;
+@add-offset-x: 0px;
+@add-offset-y: 0px;
+@add-width: 32px;
+@add-height: 32px;
+@add-total-width: 96px;
+@add-total-height: 96px;
+@add-image: '../images/main.png';
+@add: 0px 0px 0px 0px 32px 32px 96px 96px '../images/main.png' add;
+@arrow-down-name: arrow_down;
+@arrow-down-x: 32px;
+@arrow-down-y: 0px;
+@arrow-down-offset-x: -32px;
+@arrow-down-offset-y: 0px;
+@arrow-down-width: 32px;
+@arrow-down-height: 32px;
+@arrow-down-total-width: 96px;
+@arrow-down-total-height: 96px;
+@arrow-down-image: '../images/main.png';
+@arrow-down: 32px 0px -32px 0px 32px 32px 96px 96px '../images/main.png' arrow_down;
+@arrow-last-name: arrow_last;
+@arrow-last-x: 0px;
+@arrow-last-y: 32px;
+@arrow-last-offset-x: 0px;
+@arrow-last-offset-y: -32px;
+@arrow-last-width: 32px;
+@arrow-last-height: 32px;
+@arrow-last-total-width: 96px;
+@arrow-last-total-height: 96px;
+@arrow-last-image: '../images/main.png';
+@arrow-last: 0px 32px 0px -32px 32px 32px 96px 96px '../images/main.png' arrow_last;
+@arrow-next-name: arrow_next;
+@arrow-next-x: 32px;
+@arrow-next-y: 32px;
+@arrow-next-offset-x: -32px;
+@arrow-next-offset-y: -32px;
+@arrow-next-width: 32px;
+@arrow-next-height: 32px;
+@arrow-next-total-width: 96px;
+@arrow-next-total-height: 96px;
+@arrow-next-image: '../images/main.png';
+@arrow-next: 32px 32px -32px -32px 32px 32px 96px 96px '../images/main.png' arrow_next;
+@arrow-prev-name: arrow_prev;
+@arrow-prev-x: 64px;
+@arrow-prev-y: 0px;
+@arrow-prev-offset-x: -64px;
+@arrow-prev-offset-y: 0px;
+@arrow-prev-width: 32px;
+@arrow-prev-height: 32px;
+@arrow-prev-total-width: 96px;
+@arrow-prev-total-height: 96px;
+@arrow-prev-image: '../images/main.png';
+@arrow-prev: 64px 0px -64px 0px 32px 32px 96px 96px '../images/main.png' arrow_prev;
+@cancel-name: cancel;
+@cancel-x: 64px;
+@cancel-y: 32px;
+@cancel-offset-x: -64px;
+@cancel-offset-y: -32px;
+@cancel-width: 32px;
+@cancel-height: 32px;
+@cancel-total-width: 96px;
+@cancel-total-height: 96px;
+@cancel-image: '../images/main.png';
+@cancel: 64px 32px -64px -32px 32px 32px 96px 96px '../images/main.png' cancel;
+@ok-name: ok;
+@ok-x: 0px;
+@ok-y: 64px;
+@ok-offset-x: 0px;
+@ok-offset-y: -64px;
+@ok-width: 32px;
+@ok-height: 32px;
+@ok-total-width: 96px;
+@ok-total-height: 96px;
+@ok-image: '../images/main.png';
+@ok: 0px 64px 0px -64px 32px 32px 96px 96px '../images/main.png' ok;
+@spritesheet-width: 96px;
+@spritesheet-height: 96px;
+@spritesheet-image: '../images/main.png';
+@spritesheet-sprites: @add @arrow-down @arrow-last @arrow-next @arrow-prev @cancel @ok;
+@spritesheet: 96px 96px '../images/main.png' @spritesheet-sprites;
+
+/*
+The provided classes are intended to be used with the array-like variables
+
+.icon-home {
+  .sprite-width(@icon-home);
+}
+.icon-email {
+  .sprite(@icon-email);
+}
+*/
+.sprite-width(@sprite) {
+  width: extract(@sprite, 5);
+}
+
+.sprite-height(@sprite) {
+  height: extract(@sprite, 6);
+}
+
+.sprite-position(@sprite) {
+  @sprite-offset-x: extract(@sprite, 3);
+  @sprite-offset-y: extract(@sprite, 4);
+  background-position: @sprite-offset-x @sprite-offset-y;
+}
+
+.sprite-image(@sprite) {
+  @sprite-image: extract(@sprite, 9);
+  @sprite-image-bare: ~`"@{sprite-image}".slice(1, -1)`;
+  background-image: url(@sprite-image-bare);
+}
+
+.sprite(@sprite) {
+  .sprite-image(@sprite);
+  .sprite-position(@sprite);
+  .sprite-width(@sprite);
+  .sprite-height(@sprite);
+}
+
+/*
+The `.sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of LESS
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+.sprites(@spritesheet-sprites);
+*/
+.sprites(@sprites, @i: 1) when (@i <= length(@sprites)) {
+  @sprite: extract(@sprites, @i);
+  @sprite-name: extract(@sprite, 10);
+  .@{sprite-name} {
+    .sprite(@sprite);
+  }
+  .sprites(@sprites, @i + 1);
+}

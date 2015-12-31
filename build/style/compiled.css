@@ -30,3 +30,14 @@ This must be run when you have at least 2 sprites.
 
 .sprites(@spritesheet-sprites);
 */
+.header {
+  font-size: 22px;
+  color: #515151;
+}
+.cancel_icon {
+  background-image: url(../images/main.png);
+  background-position: -64px -32px;
+  width: 32px;
+  height: 32px;
+  display: block;
+}

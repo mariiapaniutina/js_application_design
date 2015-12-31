@@ -49,7 +49,20 @@ module.exports = function(grunt) {
         all: {
             src: 'src/images/*.png',
             dest: 'build/images/main.png',
-            destCss: 'src/style/main.less'
+            destCss: 'src/style/icons.less'
+        }
+    };
+    
+    //lets replace path is icons.less => to make it public
+    grunt.loadNpmTasks('grunt-text-replace');
+    config.replace = {
+        icons_less: {
+          src: ['src/style/icons.less'],
+          overwrite: true, 
+          replacements: [{
+            from: "../../build/images/",
+            to: "../images/"
+          }]
         }
     };
     
@@ -93,7 +106,7 @@ module.exports = function(grunt) {
     };
 
     // Tasks
-    grunt.registerTask('default', ['jshint', 'sprite', 'imagemin', 'less', 'concat', 'uglify']);
+    grunt.registerTask('default', ['jshint', 'sprite','replace:icons_less', 'imagemin', 'less', 'concat', 'uglify']);
     grunt.registerTask('debug', ['default', 'watch']);
     grunt.registerTask('release', []);
 
