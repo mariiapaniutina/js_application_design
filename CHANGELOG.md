@@ -1,3 +1,13 @@
+<a name="1.1.9"></a>
+## [1.1.9](https://github.com/mariiapaniutina/js_application_design/compare/v1.1.8...v1.1.9) (2015-12-31)
+
+
+### Features
+
+* updated app.json ([5e314ac](https://github.com/mariiapaniutina/js_application_design/commit/5e314ac))
+
+
+
 <a name="1.1.8"></a>
 ## [1.1.8](https://github.com/mariiapaniutina/js_application_design/compare/v1.1.7...v1.1.8) (2015-12-31)
 
