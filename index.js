@@ -7,8 +7,8 @@ app.use(express.static(__dirname + '/build')); //sourcemap will not work, becaus
 //app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
-  //response.render('index.html');
-  response.sendfile(__dirname + '/index.html');
+  //response.sendfile(__dirname + '/index.html');
+  response.send('Hello World!');
 });
 
 app.listen(process.env.PORT);
