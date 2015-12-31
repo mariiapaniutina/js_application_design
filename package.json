@@ -1,6 +1,6 @@
 {
   "name": "js_application_design",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "javascript application design.",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,7 @@
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "grunt": "^0.4.5",
+    "grunt-bump": "^0.7.0",
     "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-imagemin": "^1.0.0",
     "grunt-contrib-jshint": "^0.11.3",
