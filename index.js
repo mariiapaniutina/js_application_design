@@ -11,7 +11,7 @@ app.get('/', function(request, response) {
   response.sendfile(__dirname + '/index.html');
 });
 
-
+app.listen(process.env.PORT);
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
