@@ -10,3 +10,5 @@
 | grunt-contrib-watch |
 | grunt-spritesmith (doesnt work properly with large images) |
 | grunt-contrib-imagemin |
+| grunt-conventional-changelog |
+| grunt-bump |
