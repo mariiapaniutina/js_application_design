@@ -18,3 +18,5 @@
   <li><b>grunt-conventional-changelog</b> works from git commits. Key words: "feat:", "warn:", "chore:", "fix:" etc</li>
   <li><b>heroku</b> doesnt install "node_modules", thats why this folder is present on github in this project</li>
 </ul>
+
+<h4></h4>
