@@ -12,7 +12,9 @@
     "type": "git",
     "url": "git://github.com/mariiapaniutina/js_application_design.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "winston": "^2.1.1"
+  },
   "engines": {
     "node": "5.0.0"
   },
@@ -26,6 +28,7 @@
     "grunt-contrib-imagemin": "^1.0.0",
     "grunt-contrib-jshint": "^0.11.3",
     "grunt-contrib-less": "^1.1.0",
+    "grunt-contrib-requirejs": "^0.4.4",
     "grunt-contrib-uglify": "^0.11.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-conventional-changelog": "^5.0.0",
@@ -35,6 +38,7 @@
     "jshint": "^2.8.0",
     "json2css": "^6.1.0",
     "pngjs2": "^2.0.0",
+    "requirejs": "^2.1.22",
     "uglify-js": "^2.6.1"
   }
 }

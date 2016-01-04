@@ -1,4 +1,4 @@
-var test = function(){
+var view = function(){
     return 'VIEW!';
 };
-console.log(test());
+console.log(view());

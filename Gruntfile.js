@@ -11,11 +11,14 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     config.uglify = {
         options: {
+        	mangle: false,
             banner: '<%= banner_title %>',
             sourceMap: true
         },
         build: {
-          src: 'src/js/*.js',
+          src: ['src/js/*.js',
+          	'!src/js/components/*',
+          	'!src/js/app.js'],
           dest: 'build/js/<%= pkg.name %>.min.js'
         }
     };
@@ -97,6 +100,24 @@ module.exports = function(grunt) {
             }
         } 
     };
+    
+    //bundling with require
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
+    config.requirejs = {
+      	options: {
+	        name: 'app',
+	        baseUrl: 'src/js',
+	        out: 'js/app.min.js'
+		}, 
+		debug: {
+			options: {
+		      	optimize: 'none'
+			} 
+		},
+		release: {
+			options: {}
+		}
+	};
     
     /* Versioning (x.x.x-y)
         grunt bump-only         >>      Version bumped to 0.0.1 (in package.json) 

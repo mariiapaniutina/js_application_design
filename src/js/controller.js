@@ -1,4 +1,4 @@
-var test = function(){
+var controller = function(){
     return 'CONTROLLER!';
 };
-console.log(test());
+console.log(controller());
