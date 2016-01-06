@@ -1,3 +1,5 @@
+#Release notes
+
 <a name="1.1.10"></a>
 ## [1.1.10](https://github.com/mariiapaniutina/js_application_design/compare/v1.1.9...v1.1.10) (2015-12-31)
 
