@@ -66,6 +66,14 @@ module.exports = function(grunt) {
             from: "../../build/images/",
             to: "../images/"
           }]
+        },
+        source_map: {
+          src: ['build/js/icons.less'],
+          overwrite: true, 
+          replacements: [{
+            from: "../../src/js",
+            to: "../src/js"
+          }]
         }
     };
     
@@ -174,7 +182,7 @@ module.exports = function(grunt) {
     };
 
     // Tasks
-    grunt.registerTask('default', ['jshint', 'sprite','replace:icons_less', 'imagemin', 'less', 'concat', 'uglify']);
+    grunt.registerTask('default', ['jshint', 'sprite','replace:icons_less', 'imagemin', 'less', 'concat', 'uglify', 'replace:source_map']);
     
     grunt.registerTask('debug', ['default', 'watch']);
     grunt.registerTask('notes', ['bump-only', 'conventionalChangelog', 'bump-commit']);
