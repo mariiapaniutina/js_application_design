@@ -68,7 +68,7 @@ module.exports = function(grunt) {
           }]
         },
         source_map: {
-          src: ['build/js/js_application_design.min.js'],
+          src: ['build/js/js_application_design.min.js.map'],
           overwrite: true, 
           replacements: [{
             from: "../../src/js",
