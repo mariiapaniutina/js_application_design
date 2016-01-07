@@ -68,11 +68,11 @@ module.exports = function(grunt) {
           }]
         },
         source_map: {
-          src: ['build/js/icons.less'],
+          src: ['build/js/js_application_design.min.js'],
           overwrite: true, 
           replacements: [{
             from: "../../src/js",
-            to: "../src/js"
+            to: "https://immense-scrubland-4552.herokuapp.com/src/js"
           }]
         }
     };
