@@ -1,3 +1,6 @@
+# --- RELEASE NOTES ---
+
+
 <a name="1.1.11"></a>
 ## [1.1.11](https://github.com/mariiapaniutina/js_application_design/compare/v1.1.10...v1.1.11) (2016-01-08)
 
@@ -6,9 +9,6 @@
 
 * added hardcoded path in courcemap ([2175c33](https://github.com/mariiapaniutina/js_application_design/commit/2175c33))
 
-
-
-# --- RELEASE NOTES ---
 
 <a name="1.1.10"></a>
 ## [1.1.10](https://github.com/mariiapaniutina/js_application_design/compare/v1.1.9...v1.1.10) (2015-12-31)
