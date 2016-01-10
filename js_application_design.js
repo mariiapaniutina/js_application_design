@@ -83,6 +83,18 @@ console.log(myModule.publicMethod());
 
 console.log(myModule.api.tellPrivate());
 
+/*
+ * Example of Promise with pure JS (not supporting in IE, use Polyfill instead)
+ */
+var promise = new Promise(function(resolve, reject){
+  resolve();
+});
+
+promise.then(function(){
+  console.log('promise :: first callback');
+}).then(function(){
+  console.log('promise :: second callback');
+});
 
 var view = function(){
     return 'VIEW!';
