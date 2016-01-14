@@ -1,0 +1,81 @@
+JavaScript Application Design
+———————————————————————
+
+BUILD PROCESS:
+
+Debug => Compilation, Testing, Watching
+
+Release => Compilation, Testing, Optimization, Release notes
+
+ ———————————————————————
+
+Continuous Testing => Unit testing => Integration testing => CI
+
+ ———————————————————————
+
+Development distribution -> Optimized for debugging
+
+Release distribution -> Optimized for performance
+
+ ———————————————————————
+
+DRY- Dont Repeat Yourself
+
+WET - We Enjoy Typing || Write Everything Twice
+
+ ———————————————————————
+
+nodemon - way to reload application, when any file was changed
+
+grunt-rev 
+
+grunt-critical
+
+Travis CI
+
+node-inspector => allows to debug nodeJs source code in Chrome as regular client-side source code
+
+ ———————————————————————
+
+npm install winston => A multi-transport async logging library for Node.js
+
+npm install winston-express => Express middleware to let you use winston from the browser
+
+npm install wavi => Generate a class diagram for node.js web application inspired by the Web Application Extension (WAE) for UML. Document your application with wavi.
+
+ ———————————————————————
+
+dev - x.x.X
+
+release - x.X.x
+
+prod - X.x.x
+
+semantic versioning -> major.minor.patch
+
+ ———————————————————————
+
+CLI: command-line interface
+
+SRP: Single Responsibility Principle => Build package, function, component that do one thing and do it well
+
+Idempotence: no matter how many times you invoke the operation, the result will be the same.
+
+Pure function: the result can only depend on the arguments passed to it, and it can’t depend on state variables, services, or objects that aren’t part of the argument body
+
+Prototypes in JavaScript are most useful when dealing with DOM interaction
+
+ES6 Modules - read later! grunt-traceur allowing to “translate” ES6 features into ES5 (The best features of ES6 - import and export)
+
+async -utility module which provides functions to work with asynchronous js. Can be installed with bower: bower install async
+
+async.concurrent: few async functions without interdependencies, but when all of them are done - another function should be called
+
+async.series: few async functions with interdependencies (the result is passing as an argument), when all of them are done - another function should be called
+
+async.waterfall: few async functions with interdependencies (the result is passing as an argument), when all of them are done - another function should be called
+
+Promises -> ability to add callback in .then() method 
+
+ 
+
