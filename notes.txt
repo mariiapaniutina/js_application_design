@@ -43,6 +43,8 @@ npm install winston-express => Express middleware to let you use winston from th
 
 npm install wavi => Generate a class diagram for node.js web application inspired by the Web Application Extension (WAE) for UML. Document your application with wavi.
 
+npm install autodoc => documentation generation.
+
  ———————————————————————
 
 dev - x.x.X
