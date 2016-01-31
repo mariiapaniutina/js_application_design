@@ -1,8 +1,26 @@
-/* === PURE FUNCTION ===
- * Pure function: the result can only depend on the arguments passed to it, 
- * and it can’t depend on state variables, services, or objects that aren’t part of the argument body
+/**
+ * JavaScript Application Design & extra features
  */
 
+/**
+ * Returns the sum of a and b
+ * @param {Number} a
+ * @param {Number} b
+ * @param {Boolean} retArr If set to true, the function will return an array
+ * @returns {Number|Array} Sum of a and b or an array that contains a, b and the sum of a and b.
+ */
+function sum(a, b, retArr) {
+    if (retArr) {
+        return [a, b, a + b];
+    }
+    return a + b;
+}
+
+/** 
+ * @name pureFunction
+ * @description Pure function: the result can only depend on the arguments passed to it, 
+ * and it cann not depend on state variables, services, or objects that are not part of the argument body
+ */
 var avarageSum = function(nums){
 	var sum = 0;
 	for (var i=0; i<nums.length; i++){
@@ -14,10 +32,10 @@ var avarageSum = function(nums){
 var test1 = avarageSum([1, 2, 3, 4, 5]);
 console.log('avarageSum [1, 2, 3, 4, 5] ===>', test1);
 
-/* === FUNCTIONAL FACTORY ===
- * This is a function, which returns a function, which do what you want to.
+/** 
+ * @name functionalFactory
+ * @description This is a function, which returns a function, which do what you want to.
  */
-
 var averageFactory = function () {
     var sum = 0;
     var count = 0;
@@ -36,10 +54,10 @@ test2(4);
 var test2result = test2(5);
 console.log('averageFactory [1, 2, 3, 4, 5] ===>', test2result);
 
-/*
- * MODULE pattern using slosures
+/**
+ * @name modulePattern
+ * @description MODULE pattern using slosures
  */
-
 var myModule = (function(){
 	var privateVar = 'this is private :: myModule';
 	var privateMethod = function(){
@@ -54,10 +72,11 @@ var myModule = (function(){
 })();
 console.log(myModule.publicMethod());
 
-/*
- * Expose the public module/object through closures
+/**
+ * @name exposePublicModule
+ * @description Expose the public module/object through closures
+ * 
  */
-
 (function (myModule) {
   var privateThing = 'Private variable :: exposed from global object :: myModule';
     function privateMethod () {
@@ -72,8 +91,9 @@ console.log(myModule.publicMethod());
 
 console.log(myModule.api.tellPrivate());
 
-/*
- * Example of Promise with pure JS (not supporting in IE, use Polyfill instead)
+/**
+ * @name PromiseExample
+ * @description Example of Promise with pure JS (not supporting in IE, use Polyfill instead)
  */
 var promise = new Promise(function(resolve, reject){
   resolve();
@@ -84,3 +104,19 @@ promise.then(function(){
 }).then(function(){
   console.log('promise :: second callback');
 });
+
+/**
+ * Returns trimed string - any string with whitespaces
+ * @param {String} Str
+ * @returns {String}
+ */
+ function trim(str) { return str.replace(/^\s+|\s+$/g, ''); }
+
+/**
+ * Check if input is Number
+ * @param {Any} x
+ * @returns {Boolean}
+ */
+function isInteger(x) {
+  return x === Math.floor(x);
+}
