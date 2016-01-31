@@ -1,3 +1,9 @@
+<a name="1.1.12"></a>
+## [1.1.12](https://github.com/mariiapaniutina/js_application_design/compare/v1.1.11...v1.1.12) (2016-01-31)
+
+
+
+
 # --- RELEASE NOTES ---
 
 
