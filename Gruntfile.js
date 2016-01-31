@@ -180,6 +180,9 @@ module.exports = function(grunt) {
       files: ['<%= jshint.files %>'],
       tasks: ['jshint']
     };
+    
+    grunt.loadNpmTasks('grunt-browserify');
+    
 
     // Tasks
     grunt.registerTask('default', ['jshint', 'sprite','replace:icons_less', 'imagemin', 'less', 'concat', 'uglify', 'replace:source_map']);
