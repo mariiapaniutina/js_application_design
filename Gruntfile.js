@@ -182,7 +182,16 @@ module.exports = function(grunt) {
     };
     
     grunt.loadNpmTasks('grunt-browserify');
-    
+    /*
+    config.browserify = {
+	    debug: {
+	      	files: { 'build/js/app.js': 'js/app.js' },
+	      	options: {
+				debug: true 
+			}
+		} 
+	};
+    */
 
     // Tasks
     grunt.registerTask('default', ['jshint', 'sprite','replace:icons_less', 'imagemin', 'less', 'concat', 'uglify', 'replace:source_map']);
